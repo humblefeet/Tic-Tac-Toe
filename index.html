@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://fonts.googleapis.com/css?family=Bungee+Shade|Open+Sans|Roboto" rel="stylesheet">
     <link rel="stylesheet" href="../tic-tac-toe/css/main.css">
-    <title>Document</title>
+    <title>Tic-Tac-Toe</title>
 </head>
 <body>
     <main class="container">
@@ -16,21 +16,28 @@
                 <span class="tac  ">TAC</span>
                 <span class="toe">TOE</span></h1>
         </header>
-        <div class="left-space"></div>
-            <div class="piece top-left">1</div>
-            <div class="piece top-mid">2</div>
-            <div class="piece top-right">3</div>
-            <div class="piece mid-left">4</div>
-            <div class="piece mid-mid">5</div>
-            <div class="piece mid-right">6</div>
-            <div class="piece low-left">7</div>
-            <div class="piece low-mid">8</div>
-            <div class="piece low-right">9</div>
+        <div id="left-space">
+            <h3>Get 3 in a row and you win!</h3>
+            <button id="first">Who goes first?</button>
+        </div>
+            <div id="top-left" class="board topWin leftWin leftRightCrossWin"><p>1</p></div>
+            <div id="top-mid" class="board topWin vertMidWin"><p>2</p></div>
+            <div id="top-right" class="board topWin rightWin rightLeftCrossWin"><p>3</p></div>
+
+            <div id="mid-left" class="board horMidWin leftWin"><p>4</p></div>
+            <div id="mid-mid" class="board horMidWin vertMidWin leftRightCrossWin rightLeftCrossWin"><p>5</p></div>
+            <div id="mid-right" class="board horMidWin rightWin"><p>6</p></div>
+
+            <div id="low-left" class="board lowWin leftWin rightLeftCrossWin"><p>7</p></div>
+            <div id="low-mid" class="board lowWin vertMidWin "><p>8</p></div>
+            <div id="low-right" class="board lowWin rightWin leftRightCrossWin"><p>9</p></div>
         <div class="right-space"></div>
+
         <footer class="footer">
-            <button>RESET</button>
+            <button id="reset">RESET</button>
         </footer>
     </main>
+    <script src="../Tic-Tac-Toe/js/main.js"></script>
 </body>
 </html>
 

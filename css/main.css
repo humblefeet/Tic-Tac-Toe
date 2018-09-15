@@ -20,15 +20,21 @@ body{
 
 }
 
-.piece{
+.board{
     width: 100%;
     height: 12em;
     border: rgba(0, 0, 0, 0.582) 5px solid;
-
-}
-.board{
-    border: 2px #080606 solid;
+    padding: 2em auto;
     border-radius: 5%;
+}
+p{
+    font-family: "Bungee Shade", sans-serif;
+    font-size: 10rem;
+    font-weight: 700;
+    margin: auto;
+    padding: 10px auto;
+    vertical-align: middle;
+    text-align: center;
 }
 h1{
     font-family: "Bungee Shade", sans-serif;
@@ -65,16 +71,22 @@ h1{
     text-align: center;
 }
 
-.left-space{
+#left-space{
     grid-column: 1;
     grid-row: 2/5;
     background-color: white;
+    text-align: center;
+    display: block;
+}
+
+#left-space p{
+    color: orangered;
 }
 
 .right-space{
     grid-column: 5;
     grid-row: 2/5;
-    background-color: whitet
+    background-color: white;
 }
  
 button{
@@ -82,6 +94,32 @@ button{
     width: 10em;
     text-align: center;
     font-size: 20px;
-    font-weight: bold;
+    font-weight: 600;
     margin: 20px auto;
+    font-family: Roboto, sans-serif;
 }
+
+/* .rightLeftCrossWin{
+    Background-color: white;
+}
+.leftRightCrossWin{
+    Background-color: white;
+}
+.leftWin{
+    Background-color: white;
+}
+.vertMidWin{
+    Background-color: white;
+}
+.rightWin{
+    Background-color: white;
+}
+.topWin{
+    Background-color: white;
+}
+.horMidWin{
+    Background-color: white;
+}
+.lowWin{
+    Background-color: white;
+} */
