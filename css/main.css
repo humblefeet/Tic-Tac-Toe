@@ -110,7 +110,8 @@ button{
     font-family: Roboto, sans-serif;
 }
 h3{
-    font: mononton, sans-serif;
+    font: Roboto, sans-serif;
+    font-size: 2em;
 }
 /* .rightLeftCrossWin{
     Background-color: white;
