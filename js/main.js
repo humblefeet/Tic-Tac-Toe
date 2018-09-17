@@ -52,25 +52,36 @@ var gameBoard = document.querySelectorAll('board');
 /*----- event listeners -----*/
 firstButton.addEventListener('click',goesFirst);
 reset.addEventListener('click',resetGame);
-
+//when a square is clicked
+topLeft.addEventListener('click',printXOrO);
+topMid.addEventListener('click',printXOrO);
+topRight.addEventListener('click',printXOrO);
+midLeft.addEventListener('click',printXOrO);
+midMid.addEventListener('click',printXOrO);
+midRight.addEventListener('click',printXOrO);
+lowLeft.addEventListener('click',printXOrO);
+lowMid.addEventListener('click',printXOrO);
+lowRight.addEventListener('click',printXOrO);
 /*----- functions -----*/
 
 function resetGame(){
-    squaresClicked = [];
-    xSquaresClicked = [];
-    oSquaresClicked = [];
-    leftSpace.lastChild.textContent = "";
-    gameBoard.lastChild.textContent = "~";
-    // topLeft.textContent = "~";
-    // topMid.textContent = "~";
-    // topRight.textContent = "~";
-    // midLeft.textContent = "~";
-    // midMid.textContent = "~";
-    // midRight.textContent = "~";
-    // lowLeft.textContent = "~";
-    // lowMid.textContent = "~";
-    // lowRight.textContent = "~";
+    squaresClicked = null;
+    xSquaresClicked = null;
+    oSquaresClicked = null;
+    leftSpace.lastChild.textContent = null;
+    rightSpace.lastChild.textContent = null;
+    topLeft.lastChild.textContent = "~";
+    topMid.lastChild.textContent = "~";
+    topRight.lastChild.textContent = "~";
+    midLeft.lastChild.textContent = "~";
+    midMid.lastChild.textContent = "~";
+    midRight.lastChild.textContent = "~";
+    lowLeft.lastChild.textContent = "~";
+    lowMid.lastChild.textContent = "~";
+    lowRight.lastChild.textContent = "~";
     firstButton.addEventListener('click',goesFirst);
+    goesFirst();
+    board.lastChild.style.color = "red orange";
     topLeft.addEventListener('click',printXOrO);
     topMid.addEventListener('click',printXOrO);
     topRight.addEventListener('click',printXOrO);
@@ -106,45 +117,36 @@ function goesFirst(){
 
 }
 
-function printXOrO(event){
+
+function printXOrO(){
     if(first === "X"){
         event.target.style.color = "blueviolet";
         event.target.textContent = "X";
         xSquaresClicked.push(event.target.parentNode.id);
         squaresClicked.push(event.target.parentNode.id);
         //alternate between printing an x and o (toggle)
-
         first = "O";
             checkForWin();
-    }else if(first === "O"){
+        }else if(first === "O"){
         event.target.style.color = "rgb(128, 211, 5)";
         event.target.textContent = "O";
         oSquaresClicked.push(event.target.parentNode.id);
         squaresClicked.push(event.target.parentNode.id);
         //alternate between printing an x and o (toggle)
-
         first = "X";
             checkForWin();
     }
+
 }
 
-        
-//when a square is clicked
-topLeft.addEventListener('click',printXOrO);
-topMid.addEventListener('click',printXOrO);
-topRight.addEventListener('click',printXOrO);
-midLeft.addEventListener('click',printXOrO);
-midMid.addEventListener('click',printXOrO);
-midRight.addEventListener('click',printXOrO);
-lowLeft.addEventListener('click',printXOrO);
-lowMid.addEventListener('click',printXOrO);
-lowRight.addEventListener('click',printXOrO);
+       
+
 // when clicking on each square an x or o is printed
     //manipulate the <p> for each node
 
 //turn off click after game is won
-function removeClick(){
-    topLeft.removeEventListener('click',printXOrO);
+function removeClick(event){
+    
     topMid.removeEventListener('click',printXOrO);
     topRight.removeEventListener('click',printXOrO);
     midLeft.removeEventListener('click',printXOrO);
@@ -155,14 +157,13 @@ function removeClick(){
     lowRight.removeEventListener('click',printXOrO);
 }
 
-
 //Check for 8 possible win matches
     //includes() method
 // function winMatch(arr){
-//      if(arr.indexOf(winCombos //(leftWin[0,1,2]) || (vertMidWin[0,1,2]) || (rightWin[0,1,2]) || (topWin[0,1,2]) || (horMidWin[0,1,2]) || (lowWin[0,1,2] )||
-//     //     (rightLeftCrossWin[0,1,2]) || (leftRightCrossWin[0,1,2]))){
-// //             console.log("yes");}
-//                ));    }
+//      if(arr.indexOf(winCombos (leftWin[0,1,2]) || (vertMidWin[0,1,2]) || (rightWin[0,1,2]) || (topWin[0,1,2]) || (horMidWin[0,1,2]) || (lowWin[0,1,2] )||
+//         (rightLeftCrossWin[0,1,2]) || (leftRightCrossWin[0,1,2]))){
+//             console.log("yes");}
+//                 }
 //loop through array of win combinations
 // function winComboLoop(x){
 //     for(let i = 0; i < winCombos.length; i++){
@@ -176,31 +177,27 @@ function removeClick(){
 function checkForWin(){
     let winner = document.createElement('p');
     rightSpace.appendChild(winner);
-
-    if(squaresClicked.length>=5){
-        if(xSquaresClicked.indexOf(winCombos)===-1){
-        winner.textContent = "X WINS!";
-        console.log("Player X wins!");
-            removeClick();
-        }else if(oSquaresClicked.indexOf(winCombos)===-1){
-            winner.textContent = "O WINS!"
+    if((oSquaresClicked.length>=3)||(xSquaresClicked.length>=3)){
+        if(oSquaresClicked.indexOf(leftWin[0,1,2]|| vertMidWin[0,1,2]|| rightWin[0,1,2]|| topWin[0,1,2]|| horMidWin[0,1,2]|| lowWin[0,1,2]|| rightLeftCrossWin[0,1,2]|| rightLeftCrossWin)>-1){
+            winner.textContent = "O WINS!";
             console.log("Player O wins!");
-            event.target.removeEventListener('click',printXOrO);
-            removeClick();
-        }else if((squaresClicked <= 9)&&
-                (oSquaresClicked.indexOf(winCombos)) &&
-                (xSquaresClicked.indexOf(winCombos))){
+                target.removeEventListener('click',printXOrO, false);
+            }
+        }else if(xSquaresClicked.indexOf(leftWin[0,1,2]|| vertMidWin[0,1,2]|| rightWin[0,1,2]|| topWin[0,1,2]|| horMidWin[0,1,2]|| lowWin[0,1,2]|| rightLeftCrossWin[0,1,2]|| rightLeftCrossWin)>-1){
+            winner.textContent = "X WINS!"
+            console.log("Player X wins!");
+                target.removeEventListener('click',printXOrO, false);
+                    }else if(squaresClicked.length === 9){
             //no winner game
             console.log("Stalemate!");
             winner.textContent = "TIE";
-            removeClick();      
-        }
+            target.removeEventListener('click',printXOrO, false);
+                   }
     }
-}
 
 
-    //highlight each square in win scenario
-    //print who wins on right side
+
+
 
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -218,13 +215,8 @@ document.addEventListener("DOMContentLoaded", function() {
         // firstButton = document.getElementById('first');
         // reset = document.getElementById('reset');
         // board = document.getElementById('board');
-})
+    })
 
-
-// ('top-left'&&'top-mid'&&'top-right')||('mid-left' && 'mid-mid' && 'mid-right')
-//     ||('low-left'&&'low-mid'&&'low-right')||('top-left'&&'mid-left'&&'low-left')
-//     ||('top-right'&&'mid-right'&&'low-right')||('top-mid'&&'mid-mid'&&'low-mid')
-// ||('top-left'&&'mid-mid'&&'low-right')||('top-right'&&'mid-mid'&&'low-left')
 
 
 
