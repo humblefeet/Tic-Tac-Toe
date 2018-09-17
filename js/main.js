@@ -68,35 +68,6 @@ function resetGame(){
     location.reload();
     goesFirst();
     printXOrO();
-    
-    // squaresClicked = null;
-    // xSquaresClicked = null;
-    // oSquaresClicked = null;
-    // leftSpace.lastChild.textContent = null;
-    // rightSpace.lastChild.textContent = null;
-    // topLeft.lastChild.textContent = "~";
-    // topMid.lastChild.textContent = "~";
-    // topRight.lastChild.textContent = "~";
-    // midLeft.lastChild.textContent = "~";
-    // midMid.lastChild.textContent = "~";
-    // midRight.lastChild.textContent = "~";
-    // lowLeft.lastChild.textContent = "~";
-    // lowMid.lastChild.textContent = "~";
-    // lowRight.lastChild.textContent = "~";
-    // firstButton.addEventListener('click',goesFirst);
-    // goesFirst();
-    // board.lastChild.style.color = "red orange";
-    // topLeft.addEventListener('click',printXOrO);
-    // topMid.addEventListener('click',printXOrO);
-    // topRight.addEventListener('click',printXOrO);
-    // midLeft.addEventListener('click',printXOrO);
-    // midMid.addEventListener('click',printXOrO);
-    // midRight.addEventListener('click',printXOrO);
-    // lowLeft.addEventListener('click',printXOrO);
-    // lowMid.addEventListener('click',printXOrO);
-    // lowRight.addEventListener('click',printXOrO);
-
-
 }
 
 //determine who goes first
@@ -146,13 +117,14 @@ function printXOrO(event){
 //turn off click space is clicked or if game is won
 function removeClick(){
     removeEventListener('click',removeClick, false);
-    // topRight.removeEventListener('click',printXOrO);
-    // midLeft.removeEventListener('click',printXOrO);
-    // midMid.removeEventListener('click',printXOrO);
-    // midRight.removeEventListener('click',printXOrO);
-    // lowLeft.removeEventListener('click',printXOrO);
-    // lowMid.removeEventListener('click',printXOrO);
-    // lowRight.removeEventListener('click',printXOrO);
+    topRight.removeEventListener('click',printXOrO);
+    midLeft.removeEventListener('click',printXOrO);
+    midMid.removeEventListener('click',printXOrO);
+    midRight.removeEventListener('click',printXOrO);
+    lowLeft.removeEventListener('click',printXOrO);
+    lowMid.removeEventListener('click',printXOrO);
+    lowRight.removeEventListener('click',printXOrO);
+    addEventListener('click', printXOrO);
 }
 
 //Check for 8 possible win matches
