@@ -67,6 +67,7 @@ lowRight.addEventListener('click',printXOrO);
 function resetGame(){
     location.reload();
     goesFirst();
+    printXOrO();
     
     // squaresClicked = null;
     // xSquaresClicked = null;
